@@ -1,0 +1,10 @@
+{
+  "path": "tm",
+  "code": "TM",
+  "name": "Turkmenistan",
+  "level": "country",
+  "repo": "https://github.com/lexifina/turkmenistan-law",
+  "build": "built: Konstitusiýa (1 version, consolidated text with the amendments to 2023), Raýat kodeksi (Civil Code, 1 version, in force 2026-01-01)",
+  "register": "https://github.com/lexifina/world-law",
+  "register_date": "2026-10-28"
+}

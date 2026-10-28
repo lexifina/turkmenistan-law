@@ -1,0 +1,19 @@
+The legal texts are laws of Turkmenistan, as published by the Mejlis of Turkmenistan (Türkmenistanyň Mejlisi)
+at https://mejlis.gov.tm, retrieved 28 October 2026.
+
+The Mejlis site carries the line "Ähli hukuklar goralan" (all rights reserved) for the site as a whole.
+The laws themselves are not protected by copyright in Turkmenistan: Article 7 of the Law of Turkmenistan
+"On Copyright and Related Rights" (Zakon "Ob avtorskom prave i smezhnykh pravakh", No. 257-IV of 10 January 2012,
+as amended) lists among the works that are not objects of copyright "официальные документы (законы, судебные
+решения, иные тексты законодательного, административного ..." (the quotation is cut there), and their official translations
+(official documents: laws, court decisions and other texts of a legislative, administrative and judicial nature).
+Source of the clause: WIPO Lex, Russian text of the law.
+
+Changes made by Lexifina: each text was converted to one Markdown file per provision, one paragraph per line;
+spacing, quotes and dashes were normalised; superscript article numbers were written as hyphenated numbers; and
+the versions were arranged as git commits credited to the laws that made them. The wording of the law was not
+changed. The Mejlis does not endorse this repository.
+
+Lexifina's own contributions (the arrangement of the history, the commit messages, the tables and the
+tools) are dedicated to the public domain under CC0 1.0 Universal:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode

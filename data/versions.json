@@ -1,0 +1,33 @@
+{
+ "country": "TM",
+ "acts": [
+  {
+   "slug": "konstitusiya",
+   "short": "Konstitusiýa",
+   "title": "Türkmenistanyň Konstitusiýasy",
+   "url": "https://mejlis.gov.tm/single-law/107?lang=tm",
+   "versions": [
+    {
+     "from": "2023-01-21",
+     "units": 144,
+     "source_url": "https://mejlis.gov.tm/single-law/107?lang=tm",
+     "sha256": "fe5f710596b843349c0e3f3b2b6713adb5898c1098ee7664187e13085cd5a6c7"
+    }
+   ]
+  },
+  {
+   "slug": "rayat-kodeksi",
+   "short": "RK",
+   "title": "Türkmenistanyň Raýat kodeksi",
+   "url": "https://mejlis.gov.tm/single-code/6?lang=tm",
+   "versions": [
+    {
+     "from": "2026-01-01",
+     "units": 1344,
+     "source_url": "https://mejlis.gov.tm/single-code/6?lang=tm",
+     "sha256": "645e7eed890cd277895e099cc2a32a215a24e06be47e2f3e2f2ef24b7eda0981"
+    }
+   ]
+  }
+ ]
+}
