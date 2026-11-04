@@ -28,6 +28,146 @@
      "sha256": "645e7eed890cd277895e099cc2a32a215a24e06be47e2f3e2f2ef24b7eda0981"
     }
    ]
+  },
+  {
+   "slug": "mejlis-law-384",
+   "short": "Türkmenistanda ahalteke bedew atlarynyň döwlet goragy hakynda",
+   "title": "Türkmenistanda ahalteke bedew atlarynyň döwlet goragy hakynda",
+   "url": "https://mejlis.gov.tm/single-law/384?lang=tm",
+   "versions": [
+    {
+     "from": "2026-09-23",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/384?lang=tm",
+     "sha256": "c5050ed9d57ca15cd8fd5a586de258868d1f9d71976709e6be69f765df30c075"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-378",
+   "short": "Wirtual aktiwler hakynda",
+   "title": "Wirtual aktiwler hakynda",
+   "url": "https://mejlis.gov.tm/single-law/378?lang=tm",
+   "versions": [
+    {
+     "from": "2026-01-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/378?lang=tm",
+     "sha256": "826c48165c838360c346f8711001ecda90ea7da50ea3958cdbc7c11ba61cf61d"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-047",
+   "short": "Psihologik hyzmatlar hakynda",
+   "title": "Psihologik hyzmatlar hakynda",
+   "url": "https://mejlis.gov.tm/single-law/47?lang=tm",
+   "versions": [
+    {
+     "from": "2020-01-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/47?lang=tm",
+     "sha256": "84fe6245c7ef29efe21d6001bd30b3023659d1f88296740f16db2f4b75c5fb37"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-058",
+   "short": "Durmuş-zähmet gatnaşyklaryny düzgünleşdirmek boýunça üçtaraplaýyn topar hakynda",
+   "title": "Durmuş-zähmet gatnaşyklaryny düzgünleşdirmek boýunça üçtaraplaýyn topar hakynda",
+   "url": "https://mejlis.gov.tm/single-law/58?lang=tm",
+   "versions": [
+    {
+     "from": "2019-01-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/58?lang=tm",
+     "sha256": "e5aee0d48ef82c5fb3aeed3ad9f4ecd18759f1540570e4d0034b105cc336d1ce"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-125",
+   "short": "Neşe serişdeleri, psihotrop maddalar, prekursorlar we olaryň bikanun dolanyşygyna garşy hereket etmek hakynda",
+   "title": "Neşe serişdeleri, psihotrop maddalar, prekursorlar we olaryň bikanun dolanyşygyna garşy hereket etmek hakynda",
+   "url": "https://mejlis.gov.tm/single-law/125?lang=tm",
+   "versions": [
+    {
+     "from": "2018-01-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/125?lang=tm",
+     "sha256": "b3017f30b7e74103c6313b24247833907426e19abf7cbb77709a2afdcffa08f2"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-078",
+   "short": "Türkmenistanyň çägini operatiw enjamlaşdyrmak hakynda",
+   "title": "Türkmenistanyň çägini operatiw enjamlaşdyrmak hakynda",
+   "url": "https://mejlis.gov.tm/single-law/78?lang=tm",
+   "versions": [
+    {
+     "from": "2018-01-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/78?lang=tm",
+     "sha256": "f200273da01ed7ae47f2bbb34e229bf1c2b537a173259c63459b643f348f7339"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-081",
+   "short": "Ganyň donorlygy hakynda",
+   "title": "Ganyň donorlygy hakynda",
+   "url": "https://mejlis.gov.tm/single-law/81?lang=tm",
+   "versions": [
+    {
+     "from": "2018-01-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/81?lang=tm",
+     "sha256": "3d4f3e6fb3c1b08422da6400da942a3425826172fdc1bc247a8c5ebc9ddecd95"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-066",
+   "short": "Şahsy durmuş barada maglumat we ony goramak hakynda",
+   "title": "Şahsy durmuş barada maglumat we ony goramak hakynda",
+   "url": "https://mejlis.gov.tm/single-law/66?lang=tm",
+   "versions": [
+    {
+     "from": "2017-07-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/66?lang=tm",
+     "sha256": "92d6632f6845d2555a1568502d46342123e6fae5c830ebe889e509ce80704fda"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-122",
+   "short": "Türkmenistanyň Söwda-senagat edarasy hakynda",
+   "title": "Türkmenistanyň Söwda-senagat edarasy hakynda",
+   "url": "https://mejlis.gov.tm/single-law/122?lang=tm",
+   "versions": [
+    {
+     "from": "2016-01-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/122?lang=tm",
+     "sha256": "c252dbfacaa53ae48ce11e07294c49f1d9b1e3cfd614b123d6d88fcccbc7f4da"
+    }
+   ]
+  },
+  {
+   "slug": "mejlis-law-123",
+   "short": "Ekstremizme garşy hereket etmek hakynda",
+   "title": "Ekstremizme garşy hereket etmek hakynda",
+   "url": "https://mejlis.gov.tm/single-law/123?lang=tm",
+   "versions": [
+    {
+     "from": "2015-07-01",
+     "units": 1,
+     "source_url": "https://mejlis.gov.tm/single-law/123?lang=tm",
+     "sha256": "ae78df642e6da6c175d03d665a17765c4a3eaddffe685684b354b04c06b9b325"
+    }
+   ]
   }
  ]
 }

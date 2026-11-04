@@ -1,0 +1,20 @@
+{
+ "parts": {
+  "81-q80-reviewed-laws.json": {
+   "acts": [
+    "mejlis-law-047",
+    "mejlis-law-058",
+    "mejlis-law-066",
+    "mejlis-law-078",
+    "mejlis-law-081",
+    "mejlis-law-122",
+    "mejlis-law-123",
+    "mejlis-law-125",
+    "mejlis-law-378",
+    "mejlis-law-384"
+   ],
+   "sha256": "a15166c85eef97c19571932ab8ba1133fccf3088e3cd92fdab27cb9d87f2ff6a"
+  }
+ },
+ "schema": 1
+}
