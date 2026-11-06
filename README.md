@@ -1,5 +1,7 @@
 # Turkmenistan: law history in git
 
+Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Turkmenistan's national law, which global-law reads at `turkmenistan/national/acts/`.
+
 The law of Turkmenistan as a git history: one file per provision, one commit per version of an act on the day it took effect, and the law that made it as the commit's author. `git log` lists the versions of a provision; picking a date gives the text in force that day.
 
 It follows the shared design of [lexifina/global-law](https://github.com/lexifina/global-law), which places it at `tm/`. The texts are in Turkmen, the official language of the Mejlis texts.
