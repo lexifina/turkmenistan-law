@@ -1,50 +1,86 @@
 # Turkmenistan: law history in git
 
+The law of Turkmenistan as a git history: one file per article (one per law for ten laws kept whole), one commit per version on the day it took effect, and the law that made each change as the commit's author (the publisher, for the oldest version available). `git blame` names the act behind every line; `git log` lists every change to an article; picking a date gives the text in force that day.
+
 Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Turkmenistan's national law, which global-law reads at `turkmenistan/national/acts/`.
 
-The law of Turkmenistan as a git history: one file per provision, one commit per version of an act on the day it took effect, and the law that made it as the commit's author. `git log` lists the versions of a provision; picking a date gives the text in force that day.
+**What is in it now:** 12 acts from the Mejlis, each in one version so far: the Constitution (the 2016 revision as amended in 2017, 2020 and 2023), the Civil Code of 28 June 2025, in force from 1 January 2026, and ten laws that took effect between 2015 and 2026, among them those on countering extremism, personal data, narcotic drugs, blood donation and virtual assets. [`REPRODUCE.md`](REPRODUCE.md) lists them with their dates; [`data/laws.csv`](data/laws.csv) lists the two laws the record names.
 
-It follows the shared design of [lexifina/global-law](https://github.com/lexifina/global-law), which places it at `tm/`. The texts are in Turkmen, the official language of the Mejlis texts.
+The Constitution is `konstitusiya/` and the Civil Code `rayat-kodeksi/`: one file per article (`art-050.md`; article 6¹ is `art-006-1.md`), `preambula.md`, the headings of their parts, sections and chapters in `bolumler.md`, and a `README.md` listing them. Each of the ten laws is the whole official text in one file, `mejlis-law-<id>/full-text.md`, by its page id on mejlis.gov.tm (`mejlis-law-378/` is Wirtual aktiwler hakynda, the Law on Virtual Assets).
 
-**What is in it now**
+The text is in Turkmen, the state language (article 21 of the Constitution), as the Mejlis publishes it. Russian and English texts are not part of this record.
 
-| Folder | Act | Versions | History |
-| --- | --- | ---: | --- |
-| `konstitusiya/` | Türkmenistanyň Konstitusiýasy (the Constitution) | 1 | The Mejlis consolidated text: the 2016 revision as amended by the constitutional laws of 2017, 2020 and 2023 (No. 531-VI of 21 January 2023 is the latest) |
-| `rayat-kodeksi/` | Türkmenistanyň Raýat kodeksi (the Civil Code) | 1 | As enacted by Kanun No. 162-VII of 28 June 2025, in force 1 January 2026 |
-| `mejlis-law-384/` | Türkmenistanda ahalteke bedew atlarynyň döwlet goragy hakynda | 1 | Official Mejlis text; in force 2026-09-23; one file including textual annexes |
-| `mejlis-law-378/` | Wirtual aktiwler hakynda | 1 | Official Mejlis text; in force 2026-01-01; one file including textual annexes |
-| `mejlis-law-047/` | Psihologik hyzmatlar hakynda | 1 | Official Mejlis text; in force 2020-01-01; one file including textual annexes |
-| `mejlis-law-058/` | Durmuş-zähmet gatnaşyklaryny düzgünleşdirmek boýunça üçtaraplaýyn topar hakynda | 1 | Official Mejlis text; in force 2019-01-01; one file including textual annexes |
-| `mejlis-law-125/` | Neşe serişdeleri, psihotrop maddalar, prekursorlar we olaryň bikanun dolanyşygyna garşy hereket etmek hakynda | 1 | Official Mejlis text; in force 2018-01-01; one file including textual annexes |
-| `mejlis-law-078/` | Türkmenistanyň çägini operatiw enjamlaşdyrmak hakynda | 1 | Official Mejlis text; in force 2018-01-01; one file including textual annexes |
-| `mejlis-law-081/` | Ganyň donorlygy hakynda | 1 | Official Mejlis text; in force 2018-01-01; one file including textual annexes |
-| `mejlis-law-066/` | Şahsy durmuş barada maglumat we ony goramak hakynda | 1 | Official Mejlis text; in force 2017-07-01; one file including textual annexes |
-| `mejlis-law-122/` | Türkmenistanyň Söwda-senagat edarasy hakynda | 1 | Official Mejlis text; in force 2016-01-01; one file including textual annexes |
-| `mejlis-law-123/` | Ekstremizme garşy hereket etmek hakynda | 1 | Official Mejlis text; in force 2015-07-01; one file including textual annexes |
+## Questions as git commands
 
-The additional acts retain the entire official text in a single file, including enactment clauses and textual annexes. They have explicit commencement clauses; no earlier versions are asserted.
+| Question | Command |
+| --- | --- |
+| Every change to Article 50 of the Constitution (the right to rest) | `git log -p --word-diff -- konstitusiya/art-050.md` |
+| Which act wrote each line of Article 50? | `git blame konstitusiya/art-050.md` |
+| Every version of the Constitution, with the day each took effect | `git log --format="%h %(trailers:key=In-force,valueonly,separator=) %an" -- konstitusiya ":(exclude)konstitusiya/README.md"` |
+| Article 50 as in force on 1 January 2024 | `python tools/on.py 2024-01-01 konstitusiya art-050` |
 
-This is a first build, not a full history. Each act has one version, "the oldest version available": the Mejlis publishes only the current text, with no earlier versions online. The Constitution is dated 21 January 2023, the date of the latest amending law, which is assumed to be its in-force day; the in-force clause of No. 531-VI itself has not been checked. Article 75 of the Constitution appears in the source only as a "repealed" note and is left out. Article numbers with a superscript (such as 6 with a superscript 1) are written with a hyphen. The Criminal Code (revised edition, Kanun No. 456-VI of 17 April 2022) is not yet included.
+**Outside git**, we also host this record publicly, for free:
 
-The current Law on Legal Acts, No. 589-V, Article 42 distinguishes signature from operation: laws generally become operative ten calendar days after official publication unless an express clause supplies another date. The dates above use each added act’s express clause. Amendment commencement dates and gazette publication dates for other listed acts remain unconfirmed.
+- **[Ask Claude about the law of Turkmenistan](https://global-law.lexifina.com/v1/try_claude?country=turkmenistan)**: opens Claude with a first question ready.
+- **[Ask ChatGPT](https://global-law.lexifina.com/v1/try_chatgpt?country=turkmenistan)**: the same question in ChatGPT.
+- **[Call the API in your browser](https://global-law.lexifina.com/v1/search_law?query=miras&jurisdictions=turkmenistan)**: a search of Turkmenistan's law for "miras" (inheritance), returned as JSON. See the [documentation here](https://lexifina.com/api/global-law).
+
+Both assistants read the record through the free Global law connector (MCP, `https://global-law.lexifina.com/mcp`); the first time, the chat gives you the link that adds it. Ask in Turkmen or in English.
+
+**Host it yourself easily.** All it takes is git and Python, and the tools run on your machine:
+
+```sh
+git clone --depth 1 https://github.com/lexifina/global-law && cd global-law
+python3 tools/countries.py add turkmenistan/national/acts
+python3 tools/law.py show 2024-01-01 turkmenistan/national/acts/konstitusiya/art-050.md
+```
+
+Opened in Claude Code, Cursor, VS Code or Codex, the clone also starts a local MCP server with the same tools ([MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md)).
 
 ## Dates
 
-Each commit is dated at noon, Asia/Ashgabat, on the day the version took effect. Trailers on every commit name the law and the source; the in-force day is in `In-force:`.
+Each commit is dated at noon, Asia/Ashgabat, on the day the version took effect, and carries it in its `In-force:` trailer:
+
+- for the Constitution, 21 January 2023, the day Constitutional Law No. 531-VI, its latest amendment, was signed; its section II puts it into force on signature;
+- for the Civil Code, 1 January 2026, the day Kanun № 162-VII gives;
+- for each of the ten laws, the day its own final article gives (for the Law on the Chamber of Commerce and Industry, 1 January 2016, when its Chapter V also took effect).
+
+The ten laws were added on top of the first build, so commit order is not date order: ask for a date with `tools/on.py`, which reads `In-force:`, not with `git log --before`.
+
+The Civil Code is credited to the law that enacted it, Kanun № 162-VII. The Constitution and the ten laws are each the "oldest version available", credited to the publisher, Türkmenistanyň Mejlisi, which publishes only current texts. Later versions are credited to the law that made each change.
 
 ## How it is checked
 
-- The texts were fetched from the Mejlis a second time and parsed again; both runs give identical provisions.
-- Every version is read back from git and compared with `corpus.json` (`tools/check_repo.py`); results are in `REPRODUCE.md`.
-- No merge commits, no commit dates going backwards or in the future, and every commit's trailers parse with `git interpret-trailers --parse`.
+- Each text was fetched from the Mejlis twice and parsed twice; both runs gave the same provisions.
+- `tools/check_repo.py` reads every version back from git on the day it took effect and on the day before, and compares it with the corpus it was built from. [`REPRODUCE.md`](REPRODUCE.md) gives the corpus's sha256, and does not yet record a run of the check or a second build for it.
+- The same check requires every commit's trailers to parse, no merge commits, no commit dates going backwards and nothing dated in the future. History is append-only: no published commit is rewritten.
 
-## What "author" means
+## What it does not show
 
-The author of a commit is the law that made the change, with an e-mail address that cannot exist, so `git blame` and `git log --author` name it. The committer is always Lexifina.
+- **Most of the law.** The Mejlis lists 371 laws and 22 codes; 12 of those texts are here. The Labour Code is not; the Criminal Code is not yet parsed, and six other codes wait until the day their latest amendments took effect is confirmed.
+- **Earlier versions.** The Mejlis publishes only current texts, so each act has one; the Constitution as adopted in 2016 and its texts after the 2017 and 2020 amendments are not here.
+- **Article 1087 of the Civil Code** as a file of its own: its heading is misspelt in the source ("mada"), so its text is at the end of `art-1086.md`.
+- **Decrees, resolutions, case law, local acts and treaties**: none yet.
+
+## Sources
+
+| Source | Kind | Past versions | Notes |
+| --- | --- | --- | --- |
+| [Türkmenistanyň Mejlisi](https://mejlis.gov.tm/laws?lang=tm) (mejlis.gov.tm) | Parliament's texts of laws and codes | no, current text only | The text of every act here |
 
 ## Licence
 
-See `LICENSE`. Laws are not objects of copyright in Turkmenistan (Law on Copyright and Related Rights, Article 7).
+See [`LICENSE`](LICENSE). Laws and other official documents are not objects of copyright in Turkmenistan (Law on Copyright and Related Rights, No. 257-IV of 10 January 2012, article 7); Lexifina's arrangement, commit messages, tables and tools are dedicated to the public domain under CC0 1.0.
 
-Six further code texts are omitted from this record because their latest amending laws’ commencement dates are unconfirmed. Their original commencement clauses do not date the consolidated wording.
+No AI model wrote, translated or corrected legal text, and none runs when the history is built; the scripts were written by Claude Code running Claude Opus 5.5, and GPT-6 wrote extraction and verification code (see [`REPRODUCE.md`](REPRODUCE.md)).
+
+## More
+
+From [lexifina/global-law](https://github.com/lexifina/global-law):
+
+- [FEATURES.md](https://github.com/lexifina/global-law/blob/main/FEATURES.md): every feature, and what every corpus must support (`git blame`, `law.py`, the MCP tools)
+- [FAQ.md](https://github.com/lexifina/global-law/blob/main/FAQ.md): questions and answers · [CONTRIBUTING.md](https://github.com/lexifina/global-law/blob/main/CONTRIBUTING.md): proposing changes · [MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md): the MCP server · [REPRODUCE.md](https://github.com/lexifina/global-law/blob/main/REPRODUCE.md): how it was built · [CHANGELOG.md](https://github.com/lexifina/global-law/blob/main/CHANGELOG.md)
+- [FRESHNESS.md](https://github.com/lexifina/global-law/blob/main/FRESHNESS.md): how current each corpus is · [Monitoring](https://github.com/lexifina/global-law/tree/main/monitoring): whether updates are running · [WATCHING.md](https://github.com/lexifina/global-law/blob/main/WATCHING.md): how each official source is watched for changes
+- [performance/](https://github.com/lexifina/global-law/tree/main/performance): how fast the tools are, measured
+- [visualisations/](https://github.com/lexifina/global-law/tree/main/visualisations): charts and bridges across the world's law
+- [Vulnerabilities](https://github.com/lexifina/global-law/tree/main/vulnerabilities): mistakes in legislation as published
