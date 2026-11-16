@@ -62,6 +62,7 @@ The Civil Code is credited to the law that enacted it, Kanun № 162-VII. The Co
 - Each text was fetched from the Mejlis twice and parsed twice; both runs gave the same provisions.
 - `tools/check_repo.py` reads every version back from git on the day it took effect and on the day before, and compares it with the corpus it was built from. [`REPRODUCE.md`](REPRODUCE.md) gives the corpus's sha256, and does not yet record a run of the check or a second build for it.
 - The same check requires every commit's trailers to parse, no merge commits, no commit dates going backwards and nothing dated in the future. History is append-only: no published commit is rewritten.
+- [vulnerabilities/](vulnerabilities/README.en.md): possible drafting mistakes in this law, found by global-law's detectors and checked by hand. Not run yet.
 
 ## What it does not show
 
@@ -81,6 +82,10 @@ The Civil Code is credited to the law that enacted it, Kanun № 162-VII. The Co
 See [`LICENSE`](LICENSE). Laws and other official documents are not objects of copyright in Turkmenistan (Law on Copyright and Related Rights, No. 257-IV of 10 January 2012, article 7); Lexifina's arrangement, commit messages, tables and tools are dedicated to the public domain under CC0 1.0.
 
 No AI model wrote, translated or corrected legal text, and none runs when the history is built; the scripts were written by Claude Code running Claude Opus 5.5, and GPT-6 wrote extraction and verification code (see [`REPRODUCE.md`](REPRODUCE.md)).
+
+## Visualisations
+
+- [visualisations/](visualisations/README.en.md): charts drawn from this repository. Not drawn yet.
 
 ## More
 

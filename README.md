@@ -62,6 +62,7 @@ Raýat kodeksi ony kabul eden kanuna, Kanun № 162-VII-ä degişli edilýär. K
 - Her tekst Mejlisden iki gezek alyndy we iki gezek derňeldi; iki gezek hem şol bir düzgünler alyndy.
 - `tools/check_repo.py` her wersiýany güýje giren gününde we ondan öňki günde git-den yzyna okaýar we ony özünden gurlan korpus bilen deňeşdirýär. [`REPRODUCE.md`](REPRODUCE.md) korpusyň sha256-syny berýär, emma onuň üçin barlagyň işledilişini ýa-da ikinji gurluşy entek ýazga geçirmeýär.
 - Şol bir barlag her kommitiň treýlerleriniň derňelmegini, birleşdiriji (merge) kommitleriň bolmazlygyny, kommit seneleriniň yza gitmezligini we geljekki sene bilen hiç zadyň bolmazlygyny talap edýär. Taryh diňe goşulýar: neşir edilen hiç bir kommit täzeden ýazylmaýar.
+- [vulnerabilities/](vulnerabilities/): bu hukukda bolup biljek redaksiýa ýalňyşlyklary, global-law detektorlary tapýar we el bilen barlanýar. Entek işledilmedi.
 
 ## Nämäni görkezmeýär
 
@@ -83,6 +84,10 @@ Seret: [`LICENSE`](LICENSE). Türkmenistanda kanunlar we beýleki resmi resminam
 Hiç bir emeli aň modeli hukuk tekstini ýazmady, terjime etmedi we düzetmedi, taryh gurlanda hem hiç biri işledilmeýär; skriptleri Claude Opus 5.5 modelinde işleýän Claude Code ýazdy, GPT-6 bolsa çykaryş we barlag kodlaryny ýazdy (seret: [`REPRODUCE.md`](REPRODUCE.md)).
 
 Bu tekst iňlis dilindäki nusganyň ([README.en.md](README.en.md)) terjimesidir; tapawut bar bolsa, iňlis dilindäki nusga esas edilip alynýar.
+
+## Wizuallaşdyrmalar
+
+- [visualisations/](visualisations/): bu ammardan çekilen diagrammalar. Entek çekilmedi.
 
 ## Goşmaça maglumat
 
