@@ -1,34 +1,41 @@
-# Turkmenistan: law history in git
+# Türkmenistan: kanunçylygyň git-däki taryhy
 
-The law of Turkmenistan as a git history: one file per article (one per law for ten laws kept whole), one commit per version on the day it took effect, and the law that made each change as the commit's author (the publisher, for the oldest version available). `git blame` names the act behind every line; `git log` lists every change to an article; picking a date gives the text in force that day.
+**Türkmen dili** · [English](README.en.md)
 
-Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Turkmenistan's national law, which global-law reads at `turkmenistan/national/acts/`.
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="data/tk/effort-dark.svg">
+<img alt="Bu repozitoriýadaky Türkmenistanyň hukugy: onda näme bar, güýje giren ýyly boýunça üýtgeşmeler, resmi çeşmelere görä dolulygy we mazmunyň dogrulygy" src="data/tk/effort-light.svg" width="880">
+</picture>
 
-**What is in it now:** 12 acts from the Mejlis, each in one version so far: the Constitution (the 2016 revision as amended in 2017, 2020 and 2023), the Civil Code of 28 June 2025, in force from 1 January 2026, and ten laws that took effect between 2015 and 2026, among them those on countering extremism, personal data, narcotic drugs, blood donation and virtual assets. [`REPRODUCE.md`](REPRODUCE.md) lists them with their dates; [`data/laws.csv`](data/laws.csv) lists the two laws the record names.
+Türkmenistanyň kanunçylygy git taryhy görnüşinde: her madda üçin bir faýl (bütinligine saklanýan on kanun üçin her kanuna bir faýl), her wersiýa üçin onuň güýje giren gününde bir kommit, kommitiň awtory bolsa her üýtgeşmäni girizen kanun (elýeterli iň irki wersiýa üçin — neşir ediji). `git blame` her setiriň aňyrsyndaky namany görkezýär; `git log` maddanyň ähli üýtgeşmelerini sanap görkezýär; bir sene saýlanyňda şol gün güýjünde bolan tekst alynýar.
 
-The Constitution is `konstitusiya/` and the Civil Code `rayat-kodeksi/`: one file per article (`art-050.md`; article 6¹ is `art-006-1.md`), `preambula.md`, the headings of their parts, sections and chapters in `bolumler.md`, and a `README.md` listing them. Each of the ten laws is the whole official text in one file, `mejlis-law-<id>/full-text.md`, by its page id on mejlis.gov.tm (`mejlis-law-378/` is Wirtual aktiwler hakynda, the Law on Virtual Assets).
+Ähli ýurtlaryň hukugy üçin ýeke-täk git taryhy bolan [lexifina/global-law](https://github.com/lexifina/global-law) taslamasynyň bölegi: bu Türkmenistanyň milli hukugy bolup, global-law ony `turkmenistan/national/acts/` ýolundan okaýar.
 
-The text is in Turkmen, the state language (article 21 of the Constitution), as the Mejlis publishes it. Russian and English texts are not part of this record.
+**Häzir onda näme bar:** Mejlisiň 12 namasy, häzirlikçe her biri bir wersiýada: Konstitusiýa (2017, 2020 we 2023-nji ýyllarda girizilen üýtgetmeler bilen 2016-njy ýylyň täze redaksiýasy), 2025-nji ýylyň 28-nji iýunyndaky, 2026-njy ýylyň 1-nji ýanwaryndan güýje giren Raýat kodeksi we 2015–2026-njy ýyllar aralygynda güýje giren on kanun, olaryň arasynda ekstremizme garşy göreş, şahsy maglumatlar, neşe serişdeleri, gan donorlygy we wirtual aktiwler hakyndaky kanunlar. [`REPRODUCE.md`](REPRODUCE.md) olary seneleri bilen sanap görkezýär; [`data/laws.csv`](data/laws.csv) ýazgyda agzalýan iki kanuny sanap görkezýär.
 
-## Questions as git commands
+Konstitusiýa `konstitusiya/`, Raýat kodeksi bolsa `rayat-kodeksi/` bukjasynda ýerleşýär: her madda üçin bir faýl (`art-050.md`; 6¹-nji madda `art-006-1.md`), `preambula.md`, olaryň bölekleriniň, bölümleriniň we baplarynyň atlary `bolumler.md` faýlynda we olary sanap görkezýän `README.md`. On kanunyň her biri bir faýlda bütin resmi tekstdir: `mejlis-law-<id>/full-text.md`, bu ýerde id — kanunyň mejlis.gov.tm saýtyndaky sahypasynyň belgisi (`mejlis-law-378/` — Wirtual aktiwler hakynda Kanun).
 
-| Question | Command |
+Tekst döwlet dili bolan türkmen dilinde (Konstitusiýanyň 21-nji maddasy), Mejlisiň neşir edişi ýaly berilýär. Rus we iňlis dillerindäki tekstler bu ýazga girmeýär.
+
+## Git buýruklary görnüşindäki soraglar
+
+| Sorag | Buýruk |
 | --- | --- |
-| Every change to Article 50 of the Constitution (the right to rest) | `git log -p --word-diff -- konstitusiya/art-050.md` |
-| Which act wrote each line of Article 50? | `git blame konstitusiya/art-050.md` |
-| Every version of the Constitution, with the day each took effect | `git log --format="%h %(trailers:key=In-force,valueonly,separator=) %an" -- konstitusiya ":(exclude)konstitusiya/README.md"` |
-| Article 50 as in force on 1 January 2024 | `python tools/on.py 2024-01-01 konstitusiya art-050` |
+| Konstitusiýanyň 50-nji maddasynyň (dynç alyş hukugy) ähli üýtgeşmeleri | `git log -p --word-diff -- konstitusiya/art-050.md` |
+| 50-nji maddanyň her setirini haýsy nama ýazdy? | `git blame konstitusiya/art-050.md` |
+| Konstitusiýanyň ähli wersiýalary, her biriniň güýje giren güni bilen | `git log --format="%h %(trailers:key=In-force,valueonly,separator=) %an" -- konstitusiya ":(exclude)konstitusiya/README.md"` |
+| 2024-nji ýylyň 1-nji ýanwaryndaky güýjünde bolan 50-nji madda | `python tools/on.py 2024-01-01 konstitusiya art-050` |
 
-**Outside git**, we also host this record publicly, for free:
+**Git-den daşarda** biz bu ýazgyny mugt we hemmeler üçin açyk ýerleşdirýäris:
 
-- **[Ask Claude about the law of Turkmenistan](https://global-law.lexifina.com/v1/try_claude?country=turkmenistan)**: opens Claude with a first question ready.
-- **[Ask ChatGPT](https://global-law.lexifina.com/v1/try_chatgpt?country=turkmenistan)**: the same question in ChatGPT.
-- **[Search Turkmenistan's law on our site](https://lexifina.com/law?country=turkmenistan&q=miras)**: a search for "miras" (inheritance), with each provision's text and its versions, no account needed.
-- **[Developer REST API](https://global-law.lexifina.com/v1/search_law?query=miras&jurisdiction=turkmenistan)**: the same search as JSON, with no key. See the [documentation here](https://lexifina.com/api/global-law).
+- **[Claude-dan Türkmenistanyň hukugy barada soraň](https://global-law.lexifina.com/v1/try_claude?country=turkmenistan)**: Claude-y taýýar ilkinji sorag bilen açýar.
+- **[ChatGPT-den soraň](https://global-law.lexifina.com/v1/try_chatgpt?country=turkmenistan)**: şol bir sorag ChatGPT-de.
+- **[Saýtymyzda Türkmenistanyň hukugyndan gözläň](https://lexifina.com/law?country=turkmenistan&q=miras)**: "miras" sözi boýunça gözleg, her düzgüniň teksti we wersiýalary bilen, hasap açmak gerek däl.
+- **[Işläp düzüjiler üçin REST API](https://global-law.lexifina.com/v1/search_law?query=miras&jurisdiction=turkmenistan)**: şol bir gözleg JSON görnüşinde, açarsyz. [Resminamalar şu ýerde](https://lexifina.com/api/global-law).
 
-Both assistants read the record through the free Global law connector (MCP, `https://global-law.lexifina.com/mcp`); the first time, the chat gives you the link that adds it. Ask in Turkmen or in English.
+Iki kömekçi hem ýazgyny mugt Global law birikdirijisi (MCP, `https://global-law.lexifina.com/mcp`) arkaly okaýar; ilkinji gezek çat ony goşmak üçin salgylanma berýär. Türkmen ýa-da iňlis dilinde soraň.
 
-**Host it yourself easily.** All it takes is git and Python, and the tools run on your machine:
+**Ony aňsatlyk bilen özüňiz ýerleşdiriň.** Diňe git we Python gerek, gurallar bolsa siziň kompýuteriňizde işleýär:
 
 ```sh
 git clone --depth 1 https://github.com/lexifina/global-law && cd global-law
@@ -36,52 +43,54 @@ python3 tools/countries.py add turkmenistan/national/acts
 python3 tools/law.py show 2024-01-01 turkmenistan/national/acts/konstitusiya/art-050.md
 ```
 
-Opened in Claude Code, Cursor, VS Code or Codex, the clone also starts a local MCP server with the same tools ([MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md)).
+Claude Code, Cursor, VS Code ýa-da Codex-de açylanda, klon şol bir gurallar bilen ýerli MCP serweri hem işledýär ([MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md)).
 
-## Dates
+## Seneler
 
-Each commit is dated at noon, Asia/Ashgabat, on the day the version took effect, and carries it in its `In-force:` trailer:
+Her kommit wersiýanyň güýje giren gününiň günortan wagty (Asia/Ashgabat) bilen senelenýär we şol güni `In-force:` treýlerinde saklaýar:
 
-- for the Constitution, 21 January 2023, the day Constitutional Law No. 531-VI, its latest amendment, was signed; its section II puts it into force on signature;
-- for the Civil Code, 1 January 2026, the day Kanun № 162-VII gives;
-- for each of the ten laws, the day its own final article gives (for the Law on the Chamber of Commerce and Industry, 1 January 2016, when its Chapter V also took effect).
+- Konstitusiýa üçin — 2023-nji ýylyň 21-nji ýanwary, onuň iň soňky üýtgetmesi bolan 531-VI belgili Konstitusion Kanunyň gol çekilen güni; onuň II bölümi ony gol çekilen gününden güýje girizýär;
+- Raýat kodeksi üçin — 2026-njy ýylyň 1-nji ýanwary, Kanun № 162-VII-de görkezilen gün;
+- on kanunyň her biri üçin — onuň öz jemleýji maddasynda görkezilen gün (Söwda-senagat edarasy hakyndaky Kanun üçin — 2016-njy ýylyň 1-nji ýanwary, onuň V baby hem şol gün güýje girdi).
 
-The ten laws were added on top of the first build, so commit order is not date order: ask for a date with `tools/on.py`, which reads `In-force:`, not with `git log --before`.
+On kanun ilkinji gurluşyň üstünden goşuldy, şonuň üçin kommitleriň tertibi seneleriň tertibine gabat gelmeýär: senäni `git log --before` bilen däl-de, `In-force:` treýlerini okaýan `tools/on.py` bilen soraň.
 
-The Civil Code is credited to the law that enacted it, Kanun № 162-VII. The Constitution and the ten laws are each the "oldest version available", credited to the publisher, Türkmenistanyň Mejlisi, which publishes only current texts. Later versions are credited to the law that made each change.
+Raýat kodeksi ony kabul eden kanuna, Kanun № 162-VII-ä degişli edilýär. Konstitusiýa we on kanunyň her biri "elýeterli iň irki wersiýa" (oldest version available) bolup, diňe häzirki tekstleri neşir edýän neşir ediji Türkmenistanyň Mejlisine degişli edilýär. Soňraky wersiýalar her üýtgeşmäni girizen kanuna degişli ediler.
 
-## How it is checked
+## Nähili barlanýar
 
-- Each text was fetched from the Mejlis twice and parsed twice; both runs gave the same provisions.
-- `tools/check_repo.py` reads every version back from git on the day it took effect and on the day before, and compares it with the corpus it was built from. [`REPRODUCE.md`](REPRODUCE.md) gives the corpus's sha256, and does not yet record a run of the check or a second build for it.
-- The same check requires every commit's trailers to parse, no merge commits, no commit dates going backwards and nothing dated in the future. History is append-only: no published commit is rewritten.
+- Her tekst Mejlisden iki gezek alyndy we iki gezek derňeldi; iki gezek hem şol bir düzgünler alyndy.
+- `tools/check_repo.py` her wersiýany güýje giren gününde we ondan öňki günde git-den yzyna okaýar we ony özünden gurlan korpus bilen deňeşdirýär. [`REPRODUCE.md`](REPRODUCE.md) korpusyň sha256-syny berýär, emma onuň üçin barlagyň işledilişini ýa-da ikinji gurluşy entek ýazga geçirmeýär.
+- Şol bir barlag her kommitiň treýlerleriniň derňelmegini, birleşdiriji (merge) kommitleriň bolmazlygyny, kommit seneleriniň yza gitmezligini we geljekki sene bilen hiç zadyň bolmazlygyny talap edýär. Taryh diňe goşulýar: neşir edilen hiç bir kommit täzeden ýazylmaýar.
 
-## What it does not show
+## Nämäni görkezmeýär
 
-- **Most of the law.** The Mejlis lists 371 laws and 22 codes; 12 of those texts are here. The Labour Code is not; the Criminal Code is not yet parsed, and six other codes wait until the day their latest amendments took effect is confirmed.
-- **Earlier versions.** The Mejlis publishes only current texts, so each act has one; the Constitution as adopted in 2016 and its texts after the 2017 and 2020 amendments are not here.
-- **Article 1087 of the Civil Code** as a file of its own: its heading is misspelt in the source ("mada"), so its text is at the end of `art-1086.md`.
-- **Decrees, resolutions, case law, local acts and treaties**: none yet.
+- **Hukugyň köp bölegini.** Mejlis 371 kanuny we 22 kodeksi sanap görkezýär; olaryň 12-siniň teksti şu ýerde. Zähmet kodeksi ýok; Jenaýat kodeksi entek derňelmedi, beýleki alty kodeks bolsa iň soňky üýtgetmeleriniň güýje giren güni tassyklanýança garaşýar.
+- **Öňki wersiýalary.** Mejlis diňe häzirki tekstleri neşir edýär, şonuň üçin her namanyň bir wersiýasy bar; 2016-njy ýylda kabul edilen Konstitusiýa we onuň 2017 we 2020-nji ýyllardaky üýtgetmelerden soňky tekstleri şu ýerde ýok.
+- **Raýat kodeksiniň 1087-nji maddasyny** aýratyn faýl hökmünde: onuň ady çeşmede ýalňyş ýazylan ("mada"), şonuň üçin onuň teksti `art-1086.md` faýlynyň ahyrynda.
+- **Permanlary, kararlary, kazyýet tejribesini, ýerli namalary we halkara şertnamalary**: entek hiç biri ýok.
 
-## Sources
+## Çeşmeler
 
-| Source | Kind | Past versions | Notes |
+| Çeşme | Görnüşi | Öňki wersiýalar | Bellikler |
 | --- | --- | --- | --- |
-| [Türkmenistanyň Mejlisi](https://mejlis.gov.tm/laws?lang=tm) (mejlis.gov.tm) | Parliament's texts of laws and codes | no, current text only | The text of every act here |
+| [Türkmenistanyň Mejlisi](https://mejlis.gov.tm/laws?lang=tm) (mejlis.gov.tm) | Kanunlaryň we kodeksleriň Mejlis tarapyndan berilýän tekstleri | ýok, diňe häzirki tekst | Bu ýerdäki her namanyň teksti |
 
-## Licence
+## Ygtyýarnama
 
-See [`LICENSE`](LICENSE). Laws and other official documents are not objects of copyright in Turkmenistan (Law on Copyright and Related Rights, No. 257-IV of 10 January 2012, article 7); Lexifina's arrangement, commit messages, tables and tools are dedicated to the public domain under CC0 1.0.
+Seret: [`LICENSE`](LICENSE). Türkmenistanda kanunlar we beýleki resmi resminamalar awtorlyk hukugynyň obýekti däldir (Awtorlyk hukugy we oňa degişli hukuklar hakyndaky 2012-nji ýylyň 10-njy ýanwaryndaky 257-IV belgili Kanun, 7-nji madda); Lexifina-nyň düzüşi, kommit habarlary, tablisalary we gurallary CC0 1.0 boýunça jemgyýetçilik eýeçiligine berilýär.
 
-No AI model wrote, translated or corrected legal text, and none runs when the history is built; the scripts were written by Claude Code running Claude Opus 5.5, and GPT-6 wrote extraction and verification code (see [`REPRODUCE.md`](REPRODUCE.md)).
+Hiç bir emeli aň modeli hukuk tekstini ýazmady, terjime etmedi we düzetmedi, taryh gurlanda hem hiç biri işledilmeýär; skriptleri Claude Opus 5.5 modelinde işleýän Claude Code ýazdy, GPT-6 bolsa çykaryş we barlag kodlaryny ýazdy (seret: [`REPRODUCE.md`](REPRODUCE.md)).
 
-## More
+Bu tekst iňlis dilindäki nusganyň ([README.en.md](README.en.md)) terjimesidir; tapawut bar bolsa, iňlis dilindäki nusga esas edilip alynýar.
 
-From [lexifina/global-law](https://github.com/lexifina/global-law):
+## Goşmaça maglumat
 
-- [FEATURES.md](https://github.com/lexifina/global-law/blob/main/FEATURES.md): every feature, and what every corpus must support (`git blame`, `law.py`, the MCP tools)
-- [FAQ.md](https://github.com/lexifina/global-law/blob/main/FAQ.md): questions and answers · [CONTRIBUTING.md](https://github.com/lexifina/global-law/blob/main/CONTRIBUTING.md): proposing changes · [MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md): the MCP server · [REPRODUCE.md](https://github.com/lexifina/global-law/blob/main/REPRODUCE.md): how it was built · [CHANGELOG.md](https://github.com/lexifina/global-law/blob/main/CHANGELOG.md)
-- [FRESHNESS.md](https://github.com/lexifina/global-law/blob/main/FRESHNESS.md): how current each corpus is · [Monitoring](https://github.com/lexifina/global-law/tree/main/monitoring): whether updates are running · [WATCHING.md](https://github.com/lexifina/global-law/blob/main/WATCHING.md): how each official source is watched for changes
-- [performance/](https://github.com/lexifina/global-law/tree/main/performance): how fast the tools are, measured
-- [visualisations/](https://github.com/lexifina/global-law/tree/main/visualisations): charts and bridges across the world's law
-- [Vulnerabilities](https://github.com/lexifina/global-law/tree/main/vulnerabilities): mistakes in legislation as published
+[lexifina/global-law](https://github.com/lexifina/global-law) repozitoriýasyndan (iňlis dilindäki sahypalar):
+
+- [FEATURES.md](https://github.com/lexifina/global-law/blob/main/FEATURES.md): ähli mümkinçilikler we her korpusyň goldamaly zatlary (`git blame`, `law.py`, MCP gurallary)
+- [FAQ.md](https://github.com/lexifina/global-law/blob/main/FAQ.md): soraglar we jogaplar · [CONTRIBUTING.md](https://github.com/lexifina/global-law/blob/main/CONTRIBUTING.md): üýtgeşmeleri teklip etmek · [MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md): MCP serweri · [REPRODUCE.md](https://github.com/lexifina/global-law/blob/main/REPRODUCE.md): nähili gurlandygy · [CHANGELOG.md](https://github.com/lexifina/global-law/blob/main/CHANGELOG.md)
+- [FRESHNESS.md](https://github.com/lexifina/global-law/blob/main/FRESHNESS.md): her korpusyň näçe täzedigi · [Monitoring](https://github.com/lexifina/global-law/tree/main/monitoring): täzelenmeleriň işleýändigi · [WATCHING.md](https://github.com/lexifina/global-law/blob/main/WATCHING.md): her resmi çeşmäniň üýtgeşmeler üçin nähili yzarlanýandygy
+- [performance/](https://github.com/lexifina/global-law/tree/main/performance): gurallaryň ölçelen tizligi
+- [visualisations/](https://github.com/lexifina/global-law/tree/main/visualisations): dünýä hukugy boýunça diagrammalar we baglanyşyklar
+- [Ejizlikler](https://github.com/lexifina/global-law/tree/main/vulnerabilities): neşir edilişi ýaly kanunçylykdaky ýalňyşlar
